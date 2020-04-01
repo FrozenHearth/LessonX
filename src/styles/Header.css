@@ -1,0 +1,35 @@
+:root {
+  --header-title-color: #c14470;
+}
+
+.header-top-container {
+  display: flex;
+  padding: 2em;
+  justify-content: space-between;
+}
+
+.recital-title {
+  font-size: 2.7em;
+  letter-spacing: 0.04em;
+  position: relative;
+  bottom: 0.6em;
+}
+
+.instrument-title {
+  font-size: 1.8em;
+  position: relative;
+  bottom: 0.2em;
+}
+
+.recital-title,
+.instrument-title {
+  color: var(--header-title-color);
+  font-weight: 900;
+}
+
+.conductor-icon {
+  position: relative;
+  top: 1em;
+  width: 6em;
+  height: 6em;
+}

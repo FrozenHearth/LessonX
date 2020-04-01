@@ -1,16 +1,18 @@
 import React from 'react';
 
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import SideBar from './components/Sidebar';
 import VideoContent from './components/VideoContent';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="container">
       <Header />
-      <SideBar />
-      <VideoContent />
+      <div className="hero-container">
+        <SideBar />
+        <VideoContent />
+      </div>
     </div>
   );
 };

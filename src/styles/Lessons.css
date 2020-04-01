@@ -14,7 +14,7 @@
   font-size: 1.9em;
   position: relative;
   bottom: 0.7em;
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 .lesson-numbers-container {
@@ -47,7 +47,7 @@
     -6px -4px 20px 0px rgba(0, 0, 0, 0.1);
   padding: 0.7em 0.8em;
   color: white;
-  right: -13.9em;
+  right: -15.9em;
   position: absolute;
   font-weight: 800;
   background: #c92b2b;

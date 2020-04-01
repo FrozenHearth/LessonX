@@ -2,12 +2,18 @@
 
 .container {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  width: 70em;
+  width: 73em;
   margin: 12em auto;
-  height: 50em;
+  height: 56em;
   background: #e6e7e8;
 }
 
 .hero-container {
   display: flex;
+  height: 39.5em;
+  position: relative;
+  width: 69em;
+  left: 2em;
+  bottom: 3.5em;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

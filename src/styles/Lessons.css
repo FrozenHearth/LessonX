@@ -1,0 +1,57 @@
+.header-bottom-container {
+  display: flex;
+  justify-content: center;
+}
+
+.lessons-container {
+  display: flex;
+  position: relative;
+  bottom: 3.5em;
+}
+
+.lesson-header {
+  color: #0f0f0f;
+  font-size: 1.9em;
+  position: relative;
+  bottom: 0.7em;
+  margin-right: 1em;
+}
+
+.lesson-numbers-container {
+  width: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.lesson-numbers-circle {
+  background: #ff9811;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2), 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 3em;
+  height: 2.8em;
+  margin-left: 1.2em;
+  display: inline-block;
+}
+
+.lesson-numbers {
+  position: relative;
+  left: 0.6em;
+  top: 0.2em;
+  font-size: 1.7em;
+}
+
+.exit-session-btn {
+  box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.2),
+    -6px -4px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 0.7em 0.8em;
+  color: white;
+  right: -13.9em;
+  position: absolute;
+  font-weight: 800;
+  background: #c92b2b;
+  font-size: 1em;
+  cursor: pointer;
+  outline: 0;
+}

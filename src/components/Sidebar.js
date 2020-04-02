@@ -6,13 +6,15 @@ import {
   faTimesCircle,
   faEdit
 } from '@fortawesome/free-solid-svg-icons/';
+import VideoContent from './VideoContent';
 
 export default class SideBar extends Component {
   state = {
     done: false,
     notDoing: false,
     nextClass: false,
-    clickedObjectiveId: ''
+    clickedObjectiveId: '',
+    objectiveVideosDetails: []
   };
   done = id => {
     this.setState({
@@ -38,107 +40,92 @@ export default class SideBar extends Component {
       clickedObjectiveId: id
     });
   };
+  handleClickObjective = objective => {
+    const { objectiveVideosDetails } = objective;
+    this.setState({
+      objectiveVideosDetails
+    });
+  };
   render() {
     const { objectiveDetails } = this.props;
-    const { done, notDoing, nextClass, clickedObjectiveId } = this.state;
+
+    const {
+      done,
+      notDoing,
+      nextClass,
+      clickedObjectiveId,
+      objectiveVideosDetails
+    } = this.state;
     return (
-      <section className="sidebar-container">
-        <div className="menu-top">
-          <h2 className="menu-content-title">Menu</h2>
-        </div>
-        <div className="menu-bottom">
-          <div className="links-container">
-            <a href="#/">Video Link 1</a>
-            <a href="#/">Video Link 2</a>
-            <a href="#/">Video Link 3</a>
+      <>
+        <section className="sidebar-container">
+          <div className="menu-top">
+            <h2 className="menu-content-title">Menu</h2>
           </div>
-          <div className="objectives-container">
-            {objectiveDetails
-              ? objectiveDetails.map(objective => (
-                  <div
-                    style={
-                      done && clickedObjectiveId === objective.id
-                        ? { border: '0.2em solid #81e26e' }
-                        : notDoing && clickedObjectiveId === objective.id
-                        ? { border: '0.2em solid red' }
-                        : nextClass && clickedObjectiveId === objective.id
-                        ? { border: '0.2em solid blue' }
-                        : { border: 'none' }
-                    }
-                    className="objectives"
-                    key={objective.id}
-                  >
-                    <span className="objective-title">
-                      {objective.title}
-                      <span className="objective-duration">
-                        ({objective.durationInMinutes} mins)
-                      </span>
-                    </span>
-
-                    <span className="icon-container">
-                      <span
-                        onClick={() => this.done(objective.id)}
-                        className="check-icon"
-                      >
-                        <FontAwesomeIcon
-                          className="fa-lg"
-                          icon={faCheckCircle}
-                        />
-                      </span>
-                      <span
-                        onClick={() => this.notDoing(objective.id)}
-                        className="cross-icon"
-                      >
-                        <FontAwesomeIcon
-                          className="fa-lg"
-                          icon={faTimesCircle}
-                        />
-                      </span>
-                      <span
-                        onClick={() => this.nextClass(objective.id)}
-                        className="edit-icon"
-                      >
-                        <FontAwesomeIcon className="fa-lg" icon={faEdit} />
-                      </span>
-                    </span>
-                  </div>
-                ))
-              : ''}
-            {/* 
-            <div className="objectives">
-              <h2 className="objective-title">C5 Finger Scale RH</h2>
-              <span className="objective-duration">(15 Mins)</span>
-              <span className="icon-container">
-                <a href="#/" className="check-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faCheckCircle} />
-                </a>
-                <a href="#/" className="cross-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faTimesCircle} />
-                </a>
-                <a href="#/" className="edit-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faEdit} />
-                </a>
-              </span>
+          <div className="menu-bottom">
+            <div className="links-container">
+              <a href="#/">Video Link 1</a>
+              <a href="#/">Video Link 2</a>
+              <a href="#/">Video Link 3</a>
             </div>
+            <div className="objectives-container">
+              {objectiveDetails
+                ? objectiveDetails.map(objective => (
+                    <div
+                      onClick={() => this.handleClickObjective(objective)}
+                      style={
+                        done && clickedObjectiveId === objective.id
+                          ? { border: '0.2em solid #81e26e' }
+                          : notDoing && clickedObjectiveId === objective.id
+                          ? { border: '0.2em solid red' }
+                          : nextClass && clickedObjectiveId === objective.id
+                          ? { border: '0.2em solid blue' }
+                          : { border: 'none' }
+                      }
+                      className="objectives"
+                      key={objective.id}
+                    >
+                      <span className="objective-title">
+                        {objective.title}
+                        <span className="objective-duration">
+                          ({objective.durationInMinutes} mins)
+                        </span>
+                      </span>
 
-            <div className="objectives">
-              <h2 className="objective-title">E5 Finger Scale LH</h2>
-              <span className="objective-duration">(15 Mins)</span>
-              <span className="icon-container">
-                <a href="#/" className="check-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faCheckCircle} />
-                </a>
-                <a href="#/" className="cross-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faTimesCircle} />
-                </a>
-                <a href="#/" className="edit-icon">
-                  <FontAwesomeIcon className="fa-lg" icon={faEdit} />
-                </a>
-              </span>
-            </div> */}
+                      <span className="icon-container">
+                        <span
+                          onClick={() => this.done(objective.id)}
+                          className="check-icon"
+                        >
+                          <FontAwesomeIcon
+                            className="fa-lg"
+                            icon={faCheckCircle}
+                          />
+                        </span>
+                        <span
+                          onClick={() => this.notDoing(objective.id)}
+                          className="cross-icon"
+                        >
+                          <FontAwesomeIcon
+                            className="fa-lg"
+                            icon={faTimesCircle}
+                          />
+                        </span>
+                        <span
+                          onClick={() => this.nextClass(objective.id)}
+                          className="edit-icon"
+                        >
+                          <FontAwesomeIcon className="fa-lg" icon={faEdit} />
+                        </span>
+                      </span>
+                    </div>
+                  ))
+                : ''}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <VideoContent objectiveVideosDetails={objectiveVideosDetails} />
+      </>
     );
   }
 }

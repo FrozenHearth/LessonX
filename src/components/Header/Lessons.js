@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../../styles/Lessons.css';
 import SideBar from '../Sidebar';
-import VideoContent from '../VideoContent';
 
 export default class Lessons extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ export default class Lessons extends Component {
   render() {
     const { lessonDetails } = this.props;
     const { objectiveDetails, clickedLessonId } = this.state;
-    // console.log(this.props.lessonDetails);
+
     return (
       <>
         <div className="header-bottom-container">
@@ -57,7 +56,6 @@ export default class Lessons extends Component {
           {objectiveDetails.length !== 0 ? (
             <>
               <SideBar objectiveDetails={objectiveDetails} />
-              <VideoContent />
             </>
           ) : null}{' '}
         </div>

@@ -1,0 +1,19 @@
+.video-container {
+  position: relative;
+  width: 100%;
+}
+
+.video-thumbnails-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 2em;
+  left: 2em;
+  width: 60%;
+  height: 5em;
+}
+
+.thumbnails {
+  width: 25%;
+  border: 1px solid black;
+}

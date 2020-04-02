@@ -4,13 +4,13 @@
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   width: 73em;
   margin: 12em auto;
-  height: 56em;
+  height: 58em;
   background: #e6e7e8;
 }
 
 .hero-container {
   display: flex;
-  height: 39.5em;
+  height: 41.5em;
   position: relative;
   width: 69em;
   left: 2em;

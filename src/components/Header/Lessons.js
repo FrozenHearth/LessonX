@@ -4,18 +4,22 @@ import SideBar from '../Sidebar';
 import VideoContent from '../VideoContent';
 
 export default class Lessons extends Component {
-  state = {
-    objectiveDetails: [],
-    clickedLessonId: ''
-  };
-  getClickedLessonNumber = lesson => {
-    console.log(lesson);
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      objectiveDetails: [],
+      clickedLessonId: ''
+    };
+  }
+
+  getClickedLessonNumber = lesson => {
     this.setState({
       objectiveDetails: lesson.objectiveDetails,
       clickedLessonId: lesson.id
     });
   };
+
   render() {
     const { lessonDetails } = this.props;
     const { objectiveDetails, clickedLessonId } = this.state;
@@ -27,10 +31,10 @@ export default class Lessons extends Component {
             <h2 className="lesson-header">Lessons</h2>
             <div className="lesson-numbers-container">
               {lessonDetails
-                ? lessonDetails.map(lesson => (
+                ? lessonDetails.map((lesson, index) => (
                     <span
                       onClick={() => this.getClickedLessonNumber(lesson)}
-                      key={lesson.id}
+                      key={index}
                       className="lesson-numbers-circle"
                       style={
                         clickedLessonId !== lesson.id
@@ -50,8 +54,12 @@ export default class Lessons extends Component {
           </div>
         </div>
         <div className="hero-container">
-          <SideBar objectiveDetails={objectiveDetails} />
-          <VideoContent />
+          {objectiveDetails.length !== 0 ? (
+            <>
+              <SideBar objectiveDetails={objectiveDetails} />
+              <VideoContent />
+            </>
+          ) : null}{' '}
         </div>
       </>
     );

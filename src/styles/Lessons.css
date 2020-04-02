@@ -13,7 +13,7 @@
   color: #0f0f0f;
   font-size: 1.9em;
   position: relative;
-  bottom: 0.7em;
+  bottom: 1em;
   margin-right: 0.5em;
 }
 
@@ -21,6 +21,9 @@
   width: auto;
   display: flex;
   flex-wrap: nowrap;
+  position: relative;
+  bottom: 0.5em;
+  left: 1em;
 }
 
 .lesson-numbers-circle {

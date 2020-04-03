@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
-import './App.css';
+import { data } from './config/apiConfig';
 import Header from './components/Header/Header';
-import axios from 'axios';
+import './App.css';
 
 export default class App extends Component {
   state = {
@@ -11,13 +10,11 @@ export default class App extends Component {
     lessonDetails: []
   };
   componentDidMount() {
-    axios.get('https://api.myjson.com/bins/qubzl').then(res => {
-      const { recitalTitle, instrumentTitle, lessonDetails } = res.data;
-      this.setState({
-        recitalTitle,
-        instrumentTitle,
-        lessonDetails
-      });
+    const { recitalTitle, instrumentTitle, lessonDetails } = data;
+    this.setState({
+      recitalTitle,
+      instrumentTitle,
+      lessonDetails
     });
   }
   render() {

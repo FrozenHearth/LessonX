@@ -11,12 +11,8 @@ export default class VideoContent extends Component {
 
   render() {
     const { objectiveVideosDetails } = this.props;
-    const { backgroundImg } = this.state;
     return (
-      <div
-        style={{ background: `url(${backgroundImg})` }}
-        className="video-container"
-      >
+      <div className="video-container">
         <div className="video-thumbnails-container">
           {objectiveVideosDetails
             ? objectiveVideosDetails.map(video => (
